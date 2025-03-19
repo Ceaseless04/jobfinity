@@ -1,0 +1,8 @@
+# venv
+requirements.txt
+
+# .env
+.env
+
+# venv
+venv/
