@@ -1,8 +1,8 @@
-# Jobify - AI-Powered Resume Analyzer
+# Jobfinity - AI-Powered Resume Analyzer
 
-## 🚀 Welcome to Jobify!
+## 🚀 Welcome to Jobfinity!
 
-Jobify is an AI-powered resume analyzer that helps CS students find more accurate job matches based on their interests and resume content. Our platform uses advanced NLP and machine learning techniques to parse resumes and provide tailored job recommendations.
+Jobfinity is an AI-powered resume analyzer that helps CS students find more accurate job matches based on their interests and resume content. Our platform uses advanced NLP and machine learning techniques to parse resumes and provide tailored job recommendations.
 
 ## 👥 Team Members
 
@@ -41,8 +41,8 @@ Jobify is an AI-powered resume analyzer that helps CS students find more accurat
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/jobify.git
-   cd jobify
+   git clone https://github.com/yourusername/Jobfinity.git
+   cd Jobfinity
    ```
 
 2. **Create and activate a virtual environment**
@@ -87,7 +87,7 @@ Jobify is an AI-powered resume analyzer that helps CS students find more accurat
 ## 📁 Project Structure
 
 ```
-jobify/
+Jobfinity/
 ├── README.md                 # Project overview
 ├── requirements.txt          # Dependencies
 ├── data/                     # Sample data for testing
