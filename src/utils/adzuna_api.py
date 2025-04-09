@@ -1,61 +1,61 @@
-# models/job_matcher.py
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import pandas as pd
-
-class JobMatcher:
-    def __init__(self):
-        self.vectorizer = TfidfVectorizer(stop_words='english')
-        
-    def preprocess_job_descriptions(self, job_descriptions):
-        # Preprocess job descriptions for matching
-        job_texts = [job['description'] for job in job_descriptions]
-        self.job_descriptions = job_descriptions
-        self.job_vectors = self.vectorizer.fit_transform(job_texts)
-        
-    def match_resume(self, resume_data):
-        # Extract relevant text from resume data
-        resume_text = self._create_resume_text(resume_data)
-        
-        # Transform resume text to vector
-        resume_vector = self.vectorizer.transform([resume_text])
-        
-        # Calculate similarity between resume and job descriptions
-        similarities = cosine_similarity(resume_vector, self.job_vectors)[0]
-        
-        # Rank job matches
-        job_matches = []
-        for i, similarity in enumerate(similarities):
-            job_match = self.job_descriptions[i].copy()
-            job_match['similarity_score'] = similarity
-            job_matches.append(job_match)
-        
-        # Sort by similarity score
-        job_matches.sort(key=lambda x: x['similarity_score'], reverse=True)
-        
-        return job_matches
-    
-    def _create_resume_text(self, resume_data):
-        # Combine relevant parts of the resume into a single text
-        resume_text = ""
-        
-        # Add skills
-        if 'skills' in resume_data:
-            resume_text += " ".join(resume_data['skills']) + " "
-        
-        # Add experience
-        if 'experience' in resume_data:
-            for exp in resume_data['experience']:
-                resume_text += exp.get('title', '') + " "
-                resume_text += exp.get('company', '') + " "
-                resume_text += exp.get('description', '') + " "
-        
-        # Add education
-        if 'education' in resume_data:
-            for edu in resume_data['education']:
-                resume_text += edu.get('degree', '') + " "
-                resume_text += edu.get('field', '') + " "
-                resume_text += edu.get('institution', '') + " "
-        
-        return resume_text
+# src/utils/adzuna_api.py
+import requests
+import os
+from datetime import datetime
+
+class AdzunaJobsAPI:
+    def __init__(self, app_id=None, app_key=None, country="us"):
+        self.app_id = app_id or os.environ.get("ADZUNA_APP_ID")
+        self.app_key = app_key or os.environ.get("ADZUNA_APP_KEY")
+        self.country = country.lower()  # e.g., 'us', 'gb', 'ca'
+        self.base_url = f"https://api.adzuna.com/v1/api/jobs/{self.country}/search/1"
+
+    def search_jobs(self, keywords, location=None, limit=20):
+        """Search jobs via Adzuna API."""
+        params = {
+            "app_id": self.app_id,
+            "app_key": self.app_key,
+            "results_per_page": limit,
+            "what": keywords,
+            "content-type": "application/json",
+        }
+
+        if location:
+            params["where"] = location
+
+        try:
+            response = requests.get(self.base_url, params=params)
+            response.raise_for_status()
+            return self._process_jobs_response(response.json())
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching jobs from Adzuna API: {e}")
+            return []
+
+    def _process_jobs_response(self, data):
+        """Extract relevant job fields from Adzuna's response."""
+        processed_jobs = []
+
+        for job in data.get("results", []):
+            job_info = {
+                "job_id": job.get("id", ""),
+                "title": job.get("title", ""),
+                "company": job.get("company", {}).get("display_name", ""),
+                "location": job.get("location", {}).get("display_name", ""),
+                "description": job.get("description", ""),
+                "url": job.get("redirect_url", ""),
+                "date_posted": self._format_date(job.get("created", "")),
+                "salary_min": job.get("salary_min"),
+                "salary_max": job.get("salary_max"),
+                "category": job.get("category", {}).get("label", ""),
+            }
+
+            processed_jobs.append(job_info)
+
+        return processed_jobs
+
+    def _format_date(self, iso_date):
+        """Format ISO date to YYYY-MM-DD."""
+        try:
+            return datetime.fromisoformat(iso_date).strftime("%Y-%m-%d")
+        except Exception:
+            return ""
