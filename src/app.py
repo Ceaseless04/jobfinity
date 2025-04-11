@@ -427,20 +427,43 @@ def render_navbar(is_logged_in=False, username="User"):
 
 # File upload area component
 def render_file_upload_area():
-    upload_html = """
-    <div class="upload-container">
-        <div class="upload-icon">⬆️</div>
-        <div class="upload-text">Drag & Drop Your Resume</div>
-        <div class="file-size-text">Supported formats: PDF, DOCX, TXT • Max size: 10MB</div>
-        <button class="browse-btn" onclick="document.getElementById('file_uploader').click()">Browse Files</button>
-    </div>
-    """
-    st.markdown(upload_html, unsafe_allow_html=True)
-    
-    # Hidden file uploader that will be triggered by the button
-    uploaded_files = st.file_uploader("", type=["pdf", "docx", "txt"], accept_multiple_files=False, key="file_uploader", label_visibility="collapsed")
-    
-    return uploaded_files
+    st.markdown("""
+    <style>
+    div[data-testid="stFileUploader"] {
+        border: 2px dashed #4a4a4a;
+        border-radius: 12px;
+        padding: 50px 20px;
+        text-align: center;
+        background-color: rgba(30, 33, 48, 0.7);
+        transition: all 0.3s ease;
+        color: #e0e0e0;
+        cursor: pointer;
+        margin: 30px auto;
+    }
+    div[data-testid="stFileUploader"]:hover {
+        border-color: #4fd1c5;
+        background-color: rgba(30, 33, 48, 0.9);
+    }
+    div[data-testid="stFileUploader"] label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    return st.file_uploader(
+        label="Drag & Drop Your Resume Here",
+        type=["pdf", "docx", "txt"],
+        accept_multiple_files=False,
+        label_visibility="collapsed"
+    )
+
+
 
 # Display uploaded files
 def display_files(files):
@@ -587,12 +610,8 @@ def main():
     
     with tab1:
         if st.session_state.active_tab == 0:
-            st.markdown("""
-            <div style="text-align: center;">
-                <h2>Upload Your Resume</h2>
-                <p>Choose a resume file to analyze.</p>
-            </div>
-        """, unsafe_allow_html=True)
+            
+            unsafe_allow_html=True
             
             # Instead of using the component, we'll implement it directly
             resume_parser = ResumeParser()
