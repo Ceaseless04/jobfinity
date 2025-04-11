@@ -9,3 +9,5 @@ venv/
 .DS_Store
 
 
+# Ignore Python bytecode cache directories
+__pycache__/
