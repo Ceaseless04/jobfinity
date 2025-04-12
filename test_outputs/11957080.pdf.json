@@ -1,0 +1,20 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "communication",
+        "teamwork"
+      ],
+      "frameworks": [
+        "vue"
+      ]
+    },
+    "all_skills": [
+      "communication",
+      "vue",
+      "teamwork"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

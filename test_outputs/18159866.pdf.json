@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "leadership"
+      ],
+      "databases": [
+        "oracle"
+      ]
+    },
+    "all_skills": [
+      "leadership",
+      "oracle"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

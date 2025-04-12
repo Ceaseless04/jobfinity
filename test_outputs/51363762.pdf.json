@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "leadership"
+      ],
+      "programming_languages": [
+        "go"
+      ]
+    },
+    "all_skills": [
+      "leadership",
+      "go"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

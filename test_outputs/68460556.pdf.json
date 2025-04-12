@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "communication"
+      ],
+      "frameworks": [
+        "spring"
+      ]
+    },
+    "all_skills": [
+      "communication",
+      "spring"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

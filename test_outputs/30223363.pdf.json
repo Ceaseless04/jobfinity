@@ -1,0 +1,28 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "programming_languages": [
+        "c++",
+        "java",
+        "php"
+      ],
+      "databases": [
+        "oracle",
+        "mysql"
+      ],
+      "soft_skills": [
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "c++",
+      "java",
+      "php",
+      "oracle",
+      "communication",
+      "mysql"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "communication"
+      ],
+      "tools": [
+        "azure"
+      ]
+    },
+    "all_skills": [
+      "communication",
+      "azure"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

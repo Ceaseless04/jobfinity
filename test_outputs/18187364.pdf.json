@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "databases": [
+        "oracle"
+      ],
+      "data_science": [
+        "statistics"
+      ]
+    },
+    "all_skills": [
+      "oracle",
+      "statistics"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

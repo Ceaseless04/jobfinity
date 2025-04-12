@@ -1,0 +1,31 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "tools": [
+        "jira",
+        "confluence"
+      ],
+      "soft_skills": [
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "jira",
+      "confluence",
+      "communication"
+    ]
+  },
+  "experience": [],
+  "education": [
+    {
+      "degree": "Master",
+      "field": "International Affairs 2011",
+      "school": "American University | State Master of Arts in Natural Resources 2011"
+    },
+    {
+      "degree": "Bachelor",
+      "field": "Biological Sciences 2008",
+      "school": "Languages"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "databases": [
+        "oracle",
+        "mysql"
+      ],
+      "tools": [
+        "aws"
+      ],
+      "soft_skills": [
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "oracle",
+      "aws",
+      "communication",
+      "mysql"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

@@ -1,0 +1,20 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "data_science": [
+        "statistics"
+      ]
+    },
+    "all_skills": [
+      "statistics"
+    ]
+  },
+  "experience": [],
+  "education": [
+    {
+      "degree": "Bachelor",
+      "field": "Computer Science &",
+      "school": "Business Oneonta State University - Oneonta, NY"
+    }
+  ]
+}
