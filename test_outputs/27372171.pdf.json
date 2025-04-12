@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "data_science": [
+        "statistics"
+      ],
+      "soft_skills": [
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "statistics",
+      "communication"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

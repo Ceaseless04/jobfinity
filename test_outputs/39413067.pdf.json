@@ -1,0 +1,22 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "communication"
+      ],
+      "programming_languages": [
+        "c++",
+        "java",
+        "php"
+      ]
+    },
+    "all_skills": [
+      "communication",
+      "c++",
+      "java",
+      "php"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

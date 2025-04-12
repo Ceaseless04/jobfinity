@@ -1,0 +1,20 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "tools": [
+        "azure"
+      ],
+      "programming_languages": [
+        "c++",
+        "java"
+      ]
+    },
+    "all_skills": [
+      "azure",
+      "c++",
+      "java"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

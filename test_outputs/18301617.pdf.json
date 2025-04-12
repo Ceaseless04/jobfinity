@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "leadership",
+        "teamwork",
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "leadership",
+      "teamwork",
+      "communication"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

@@ -1,0 +1,24 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "databases": [
+        "oracle"
+      ],
+      "tools": [
+        "azure",
+        "aws"
+      ],
+      "programming_languages": [
+        "python"
+      ]
+    },
+    "all_skills": [
+      "oracle",
+      "azure",
+      "python",
+      "aws"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

@@ -1,0 +1,30 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "frameworks": [
+        "express"
+      ],
+      "databases": [
+        "oracle",
+        "mysql"
+      ],
+      "programming_languages": [
+        "php",
+        "javascript",
+        "java",
+        "c++"
+      ]
+    },
+    "all_skills": [
+      "express",
+      "oracle",
+      "php",
+      "javascript",
+      "java",
+      "c++",
+      "mysql"
+    ]
+  },
+  "experience": [],
+  "education": []
+}
