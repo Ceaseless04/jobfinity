@@ -1,0 +1,30 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "programming_languages": [
+        "c++",
+        "java",
+        "javascript",
+        "php",
+        "python"
+      ],
+      "databases": [
+        "oracle"
+      ],
+      "data_science": [
+        "statistics"
+      ]
+    },
+    "all_skills": [
+      "c++",
+      "java",
+      "javascript",
+      "php",
+      "python",
+      "oracle",
+      "statistics"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "tools": [
+        "jira"
+      ],
+      "soft_skills": [
+        "leadership"
+      ]
+    },
+    "all_skills": [
+      "jira",
+      "leadership"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

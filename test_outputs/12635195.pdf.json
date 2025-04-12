@@ -1,0 +1,18 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "programming_languages": [
+        "python",
+        "java",
+        "javascript"
+      ]
+    },
+    "all_skills": [
+      "python",
+      "java",
+      "javascript"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

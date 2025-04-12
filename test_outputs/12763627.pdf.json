@@ -1,0 +1,39 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "databases": [
+        "mysql",
+        "oracle"
+      ],
+      "programming_languages": [
+        "javascript"
+      ],
+      "tools": [
+        "jira"
+      ],
+      "soft_skills": [
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "mysql",
+      "oracle",
+      "javascript",
+      "jira",
+      "communication"
+    ]
+  },
+  "experience": [],
+  "education": [
+    {
+      "degree": "Master",
+      "field": "Computer Science",
+      "school": "August 2014 - December 2015"
+    },
+    {
+      "degree": "Bachelor",
+      "field": "Computer Science and Engineering",
+      "school": "September 2007 - May 2011."
+    }
+  ]
+}

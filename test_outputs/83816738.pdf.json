@@ -1,0 +1,46 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "programming_languages": [
+        "java",
+        "javascript",
+        "php"
+      ],
+      "frameworks": [
+        "spring"
+      ],
+      "databases": [
+        "mysql",
+        "postgresql",
+        "oracle",
+        "mongodb"
+      ],
+      "tools": [
+        "git",
+        "jenkins",
+        "aws",
+        "jira"
+      ],
+      "soft_skills": [
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "java",
+      "spring",
+      "javascript",
+      "mysql",
+      "postgresql",
+      "oracle",
+      "mongodb",
+      "git",
+      "jenkins",
+      "communication",
+      "aws",
+      "jira",
+      "php"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

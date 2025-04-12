@@ -1,0 +1,24 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "programming_languages": [
+        "javascript",
+        "java",
+        "c++",
+        "go"
+      ],
+      "databases": [
+        "mysql"
+      ]
+    },
+    "all_skills": [
+      "javascript",
+      "java",
+      "c++",
+      "mysql",
+      "go"
+    ]
+  },
+  "experience": [],
+  "education": []
+}
