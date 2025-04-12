@@ -1,0 +1,30 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "tools": [
+        "aws"
+      ],
+      "frameworks": [
+        "spring"
+      ],
+      "programming_languages": [
+        "python"
+      ],
+      "databases": [
+        "oracle"
+      ],
+      "soft_skills": [
+        "communication"
+      ]
+    },
+    "all_skills": [
+      "aws",
+      "spring",
+      "python",
+      "oracle",
+      "communication"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

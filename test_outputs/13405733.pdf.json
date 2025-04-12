@@ -1,0 +1,30 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "leadership",
+        "communication"
+      ],
+      "programming_languages": [
+        "python"
+      ],
+      "databases": [
+        "oracle"
+      ]
+    },
+    "all_skills": [
+      "leadership",
+      "python",
+      "oracle",
+      "communication"
+    ]
+  },
+  "experience": [],
+  "education": [
+    {
+      "degree": "Associate",
+      "field": "Project Management (CAPM) \u00e2\u20ac\u201c #2743884",
+      "school": "Expires : Expected in 2028"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "soft_skills": [
+        "leadership",
+        "communication"
+      ],
+      "tools": [
+        "azure"
+      ]
+    },
+    "all_skills": [
+      "leadership",
+      "communication",
+      "azure"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

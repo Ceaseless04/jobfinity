@@ -1,0 +1,14 @@
+{
+  "skills": {
+    "skills_by_category": {},
+    "all_skills": []
+  },
+  "experience": [],
+  "education": [
+    {
+      "degree": "Bachelor",
+      "field": "Network Security",
+      "school": "2015 CompTIA Certified in Security Fundamentals (Security+)"
+    }
+  ]
+}

@@ -1,67 +1,53 @@
-# src/utils/linkedin_api.py
-import requests
-import json
-import os
-from datetime import datetime
+# src/components/job_search.py
+import streamlit as st
+import pandas as pd
+from utils.linkedin_api import LinkedInJobsAPI
 
-class LinkedInJobsAPI:
-    def __init__(self, api_key=None):
-        self.api_key = api_key or os.environ.get('LINKEDIN_API_KEY')
-        self.base_url = "https://api.linkedin.com/v2/jobs-search"
-        
-    def search_jobs(self, keywords, location=None, limit=25):
-        """Search for jobs based on keywords and location."""
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
-        }
-        
-        params = {
-            "keywords": keywords,
-            "count": limit
-        }
-        
-        if location:
-            params["location"] = location
-        
-        try:
-            response = requests.get(self.base_url, headers=headers, params=params)
-            response.raise_for_status()  # Raise exception for HTTP errors
-            return self._process_jobs_response(response.json())
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching jobs from LinkedIn API: {e}")
-            return []
+def render_job_search(job_matcher, resume_data):
+    st.header("Job Search")
     
-    def _process_jobs_response(self, response_data):
-        """Process the API response and extract relevant job information."""
-        processed_jobs = []
+    # Initialize LinkedIn API
+    linkedin_api = LinkedInJobsAPI()
+    
+    # Extract skills from resume
+    skills = resume_data.get("skills", [])
+    skill_keywords = ", ".join(skills[:5])  # Use top 5 skills as default keywords
+    
+    # Search options
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        keywords = st.text_area("Search Keywords", value=skill_keywords, 
+                               help="Enter keywords separated by commas")
+    
+    with col2:
+        location = st.text_input("Location", value="", 
+                                help="Enter city, state, or country")
         
-        for job in response_data.get("elements", []):
-            # Extract basic job info
-            job_info = {
-                "job_id": job.get("entityUrn", "").split(":")[-1],
-                "title": job.get("title", ""),
-                "company": job.get("company", {}).get("name", ""),
-                "location": job.get("locationName", ""),
-                "description": job.get("description", {}).get("text", ""),
-                "url": f"https://www.linkedin.com/jobs/view/{job.get('entityUrn', '').split(':')[-1]}",
-                "date_posted": self._format_date(job.get("postedAt", "")),
-                "employment_type": job.get("employmentStatus", ""),
-                "experience_level": job.get("experienceLevel", ""),
-                "industries": [ind.get("name", "") for ind in job.get("industries", [])]
-            }
+    num_results = st.slider("Number of Results", min_value=5, max_value=50, value=20)
+    
+    # Search button
+    if st.button("Search Jobs"):
+        with st.spinner("Searching for jobs..."):
+            # Search for jobs using LinkedIn API
+            job_results = linkedin_api.search_jobs(keywords, location, num_results)
             
-            processed_jobs.append(job_info)
-        
-        return processed_jobs
+            if job_results:
+                st.success(f"Found {len(job_results)} jobs matching your criteria.")
+                
+                # Preprocess job descriptions for matching
+                job_matcher.preprocess_job_descriptions(job_results)
+                
+                # Match resume with job descriptions
+                job_matches = job_matcher.match_resume(resume_data)
+                
+                # Display matches summary
+                st.subheader("Job Matches")
+                st.info(f"Found {len(job_matches)} matches. Results are sorted by relevance to your resume.")
+                
+                return job_matches
+            else:
+                st.error("No jobs found. Please try different keywords or location.")
+                return None
     
-    def _format_date(self, timestamp):
-        """Format timestamp to readable date."""
-        if not timestamp:
-            return ""
-        
-        try:
-            dt = datetime.fromtimestamp(timestamp / 1000)  # Convert from milliseconds
-            return dt.strftime("%Y-%m-%d")
-        except:
-            return ""
+    return None

@@ -1,0 +1,26 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "programming_languages": [
+        "c++",
+        "python",
+        "java"
+      ],
+      "soft_skills": [
+        "communication"
+      ],
+      "data_science": [
+        "statistics"
+      ]
+    },
+    "all_skills": [
+      "c++",
+      "python",
+      "java",
+      "communication",
+      "statistics"
+    ]
+  },
+  "experience": [],
+  "education": []
+}

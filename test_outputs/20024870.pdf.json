@@ -1,0 +1,24 @@
+{
+  "skills": {
+    "skills_by_category": {
+      "programming_languages": [
+        "php",
+        "java"
+      ],
+      "data_science": [
+        "statistics"
+      ],
+      "frameworks": [
+        "spring"
+      ]
+    },
+    "all_skills": [
+      "php",
+      "java",
+      "statistics",
+      "spring"
+    ]
+  },
+  "experience": [],
+  "education": []
+}
