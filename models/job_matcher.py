@@ -4,36 +4,47 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 class JobMatcher:
     def __init__(self):
+        self.vectorizer = None
+        self.job_vectors = None
+        self.jobs = []
+        self.job_descriptions = []
+
+    def preprocess_job_descriptions(self, jobs):
+        valid_jobs = [
+            job for job in jobs
+            if job.get("description") and len(job["description"].strip()) > 20
+        ]
+
+        if not valid_jobs:
+            raise ValueError("No valid job information to vectorize. Please check job data.")
+
+        self.job_descriptions = [job["description"] for job in valid_jobs]
         self.vectorizer = TfidfVectorizer(stop_words='english')
-        
-    def preprocess_job_descriptions(self, job_descriptions):
-        # Preprocess job descriptions for matching
-        job_texts = [job['description'] for job in job_descriptions]
-        self.job_descriptions = job_descriptions
-        self.job_vectors = self.vectorizer.fit_transform(job_texts)
-        
+        self.job_vectors = self.vectorizer.fit_transform(self.job_descriptions)
+        self.jobs = valid_jobs
+
     def match_resume(self, resume_data):
-        # Extract relevant text from resume data
         resume_text = self._create_resume_text(resume_data)
-        
-        # Transform resume text to vector
+        if not resume_text.strip():
+            raise ValueError("Resume text is empty.")
+
         resume_vector = self.vectorizer.transform([resume_text])
-        
-        # Calculate similarity between resume and job descriptions
+
+        if self.job_vectors is None or self.job_vectors.shape[0] == 0:
+            raise ValueError("No job vectors available for similarity comparison.")
+
         similarities = cosine_similarity(resume_vector, self.job_vectors)[0]
-        
-        # Rank job matches
-        job_matches = []
+
+        matched_jobs = []
         for i, similarity in enumerate(similarities):
-            job_match = self.job_descriptions[i].copy()
-            job_match['similarity_score'] = similarity
-            job_matches.append(job_match)
-        
-        # Sort by similarity score
-        job_matches.sort(key=lambda x: x['similarity_score'], reverse=True)
-        
-        return job_matches
-    
+            job_match = self.jobs[i].copy()
+            job_match["similarity"] = similarity
+            matched_jobs.append(job_match)
+
+        matched_jobs.sort(key=lambda x: x["similarity"], reverse=True)
+        return matched_jobs
+
+
     def _create_resume_text(self, resume_data):
         resume_text = ""
 
@@ -54,4 +65,3 @@ class JobMatcher:
             resume_text += edu.get("school", "") + " "
 
         return resume_text.strip()
-
