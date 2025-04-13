@@ -1,8 +1,6 @@
 # models/job_matcher.py
-import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import pandas as pd
 
 class JobMatcher:
     def __init__(self):
@@ -37,25 +35,23 @@ class JobMatcher:
         return job_matches
     
     def _create_resume_text(self, resume_data):
-        # Combine relevant parts of the resume into a single text
         resume_text = ""
-        
-        # Add skills
-        if 'skills' in resume_data:
-            resume_text += " ".join(resume_data['skills']) + " "
-        
-        # Add experience
-        if 'experience' in resume_data:
-            for exp in resume_data['experience']:
-                resume_text += exp.get('title', '') + " "
-                resume_text += exp.get('company', '') + " "
-                resume_text += exp.get('description', '') + " "
-        
-        # Add education
-        if 'education' in resume_data:
-            for edu in resume_data['education']:
-                resume_text += edu.get('degree', '') + " "
-                resume_text += edu.get('field', '') + " "
-                resume_text += edu.get('institution', '') + " "
-        
-        return resume_text
+
+        # Skills
+        if isinstance(resume_data.get("skills"), dict):
+            resume_text += " ".join(resume_data["skills"].get("all_skills", [])) + " "
+
+        # Experience
+        for exp in resume_data.get("experience", []):
+            resume_text += exp.get("title", "") + " "
+            resume_text += exp.get("company", "") + " "
+            resume_text += exp.get("description", "") + " "
+
+        # Education
+        for edu in resume_data.get("education", []):
+            resume_text += edu.get("degree", "") + " "
+            resume_text += edu.get("field", "") + " "
+            resume_text += edu.get("school", "") + " "
+
+        return resume_text.strip()
+
