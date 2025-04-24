@@ -59,7 +59,12 @@ Jobfinity is an AI-powered resume analyzer that helps CS students find more accu
    pip install -r requirements.txt
    ```
 
-4. **Install NLTK data**
+4. **Install spaCy language model**
+   ```bash
+   python -m spacy download en_core_web_md
+   ```
+
+5. **Install NLTK data**
    ```python
    # Run this in Python
    import nltk
@@ -68,13 +73,13 @@ Jobfinity is an AI-powered resume analyzer that helps CS students find more accu
    nltk.download('wordnet')
    ```
 
-5. **Run the application**
+6. **Run the application**
    ```bash
    cd src
    streamlit run app.py
    ```
 
-6. **Access the application**
+7. **Access the application**
    - Open your browser and go to `http://localhost:8501`
 
 ## 📁 Project Structure
