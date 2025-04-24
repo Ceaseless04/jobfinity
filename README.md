@@ -8,7 +8,7 @@ Jobfinity is an AI-powered resume analyzer that helps CS students find more accu
 
 - **Kristian Vazquez**: Team Lead / ML Engineer / Full-Stack Dev
 - **Miguel Garcia**: ML Engineer / Full-Stack Dev
-- **Alejandro Garcia**: ML / Full-Stack Dev
+- **Raidel Almeida**: ML / Full-Stack Dev
 - **Elijah Chin**: Backend & Frontend Developer
 - **Baire Diaz**: Backend & Frontend Developer
 
@@ -23,7 +23,6 @@ Jobfinity is an AI-powered resume analyzer that helps CS students find more accu
 
 - **Frontend**: Streamlit, HTML, CSS
 - **Backend**: Python
-- **Database**: MongoDB
 - **ML & NLP Libraries**: 
   - pyresparser, pdfminer3
   - NLTK, spaCy
@@ -34,7 +33,6 @@ Jobfinity is an AI-powered resume analyzer that helps CS students find more accu
 
 ### Prerequisites
 - Python 3.8+
-- MongoDB
 - Git
 
 ### Installation Steps
@@ -70,18 +68,13 @@ Jobfinity is an AI-powered resume analyzer that helps CS students find more accu
    nltk.download('wordnet')
    ```
 
-5. **Set up MongoDB**
-   - Install MongoDB Community Edition from [mongodb.com](https://www.mongodb.com/try/download/community)
-   - Start the MongoDB service
-   - Update the connection string in `config.py` if necessary
-
-6. **Run the application**
+5. **Run the application**
    ```bash
    cd src
    streamlit run app.py
    ```
 
-7. **Access the application**
+6. **Access the application**
    - Open your browser and go to `http://localhost:8501`
 
 ## 📁 Project Structure
@@ -95,14 +88,14 @@ Jobfinity/
 │   └── sample_job_descriptions/
 ├── models/                   # ML models
 │   ├── resume_parser.py
-│   └── job_matcher.py
+│   ├── job_matcher.py
+|   └── career_path.py
 ├── src/                      # Source code
 │   ├── app.py                # Main Streamlit application
-│   ├── config.py             # Configuration settings
 │   ├── utils/                # Utility functions
 │   └── components/           # Streamlit UI components
-├── database/                 # Database connectors
-└── tests/                    # Unit and integration tests
+├── tests/                    # Unit and integration tests
+└── test_outputs/             # output of test dataset (PDF Resumes)
 ```
 
 ## ⚙️ Development Workflow
@@ -137,7 +130,7 @@ Jobfinity/
 
 Run tests using pytest:
 ```bash
-pytest tests/
+python3 -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 ## 📊 Project Milestones
@@ -173,11 +166,10 @@ pytest tests/
 
 ## 🔗 Useful Links
 
-- [Project Proposal Document](docs/proposal.pdf)
+- [Video Demo](https://drive.google.com/file/d/1OJ0aiYk7b836-iNEx8KcV-8ys1-QZ7gV/view?usp=sharing)
 - [Streamlit Documentation](https://docs.streamlit.io/)
-- [MongoDB Documentation](https://docs.mongodb.com/)
 - [spaCy Documentation](https://spacy.io/usage)
-- [LinkedIn Jobs API Documentation](https://developer.linkedin.com/docs/jobs-api)
+- [Adzuna API Documentation](https://developer.adzuna.com/overview)
 
 ## 🆘 Getting Help
 
