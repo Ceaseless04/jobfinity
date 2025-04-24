@@ -39,7 +39,7 @@ Jobfinity is an AI-powered resume analyzer that helps CS students find more accu
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/Jobfinity.git
+   git clone https://github.com/Ceaseless04/Jobfinity.git
    cd Jobfinity
    ```
 
