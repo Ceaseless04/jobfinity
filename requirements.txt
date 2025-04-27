@@ -12,3 +12,4 @@ gensim
 requests
 python-docx
 tika
+python-dotenv

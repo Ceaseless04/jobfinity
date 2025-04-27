@@ -11,3 +11,4 @@ venv/
 
 # Ignore Python bytecode cache directories
 __pycache__/
+models/__pycache__/
