@@ -4,14 +4,14 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 import json
-
-load_dotenv()
+import streamlit as st
+#load_dotenv()
 
 class AdzunaJobsAPI:
     def __init__(self, country="us"):
-        self.app_id = os.environ.get("ADZUNA_APP_ID")
-        self.app_key = os.environ.get("ADZUNA_APP_KEY")
-        self.country = country.lower()  # e.g., 'us', 'gb', 'ca'
+        self.app_id = st.secrets["ADZUNA_APP_ID"]
+        self.app_key = st.secrets["ADZUNA_APP_KEY"]
+        self.country = country  # e.g., 'us', 'gb', 'ca'
         self.base_url = f"https://api.adzuna.com/v1/api/jobs/{self.country}/search/1"
 
     def search_jobs(self, location=None, limit=100):
