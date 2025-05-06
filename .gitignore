@@ -12,3 +12,6 @@ venv/
 # Ignore Python bytecode cache directories
 __pycache__/
 models/__pycache__/
+
+# credentials for api
+ .streamlit
