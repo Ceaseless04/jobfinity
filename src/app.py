@@ -43,7 +43,7 @@ def main():
         if resume_data:
             st.session_state.resume_data = resume_data
             st.session_state.active_tab = "Matched Jobs"
-            st.experimental_rerun()
+            st.rerun()
 
     # Matched Jobs Tab
     with tab2:
